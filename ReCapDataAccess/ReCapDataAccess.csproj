@@ -5,6 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Concrete\EntityFramework\CarDatabase.mdf" />
+    <None Remove="Concrete\EntityFramework\CarDatabase_log.ldf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.11" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj" />
     <ProjectReference Include="..\ReCapEntities\ReCapEntities.csproj" />
   </ItemGroup>
 

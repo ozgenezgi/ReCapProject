@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ReCapEntities.Abstract
+namespace Core.Entities
 {
     public interface IEntity
     {
-
     }
 }

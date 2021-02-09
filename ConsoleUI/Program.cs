@@ -1,7 +1,9 @@
 ﻿using System;
 using ReCapBusiness.Concrete;
 using ReCapDataAccess.Abstract;
+using ReCapDataAccess.Concrete.EntityFramework;
 using ReCapDataAccess.Concrete.InMemory;
+using ReCapEntities.Concrete;
 
 namespace ConsoleUI
 {
@@ -9,14 +11,21 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            
-            ICarManager carManager = new ICarManager(new InMemoryCarDal());
-
-            foreach (var car in carManager.GetAll())
-            {
-                Console.WriteLine(car.CarId+ " numbered car is " + car.Description + " and Model year: " + car.ModelYear);
-            }
+            CarTest();
 
         }
+
+        private static void CarTest()
+        {
+            ICarManager carManager = new ICarManager(new EfCarDal());
+
+
+
+            foreach (var car in carManager.GetCarDetails())
+            {
+                Console.WriteLine(car.CarId + "/" + car.BrandName);
+            }
+        }
     }
+    
 }

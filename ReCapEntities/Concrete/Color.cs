@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using ReCapEntities.Abstract;
+using Core.Entities;
+
 
 namespace ReCapEntities.Concrete
 {

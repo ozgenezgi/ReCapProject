@@ -5,6 +5,7 @@ using ReCapBusiness.Abstarct;
 using ReCapDataAccess.Concrete.InMemory;
 using ReCapDataAccess.Abstract;
 using ReCapEntities.Concrete;
+using ReCapEntities.DTOs;
 
 namespace ReCapBusiness.Concrete
 {
@@ -21,5 +22,23 @@ namespace ReCapBusiness.Concrete
         {
             return _carDal.GetAll();
         }
+
+        public List<Car> GetAllByBrandId(int id)
+        {
+            return _carDal.GetAll(c => c.BrandId == id);
+        }
+
+        public List<Car> GetByUnitPrice(decimal min, decimal max)
+        {
+            return _carDal.GetAll(c => c.DailyPrice >= min && c.DailyPrice <= max);
+        }
+       
+
+        public List<CarDetailDto> GetCarDetails()
+        {
+            return _carDal.GetCarDetails();
+        }
+
+     
     }
 }
