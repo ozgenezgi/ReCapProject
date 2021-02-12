@@ -22,11 +22,15 @@ namespace ReCapDataAccess.Concrete.EntityFramework
                 var result = from c in context.Car
                              join b in context.Brand
                              on c.BrandId equals b.BrandId
+                             join a in context.Color
+                             on c.ColorId equals a.ColorId
                              select new CarDetailDto
                              {
                                  CarId = c.CarId,
                                  BrandName = b.BrandName,
-                                 DailyPrice = c.DailyPrice
+                                 DailyPrice = c.DailyPrice,
+                                 Description = c.Description,
+                                 ColorName = a.ColorName
                              };
                 return result.ToList();
             }
