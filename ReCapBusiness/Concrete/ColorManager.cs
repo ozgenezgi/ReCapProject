@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Core.Utilities.Results;
 using ReCapBusiness.Abstarct;
 using ReCapDataAccess.Abstract;
 using ReCapEntities.Concrete;
@@ -16,14 +17,14 @@ namespace ReCapBusiness.Concrete
             _colorDal = colorDal;
         }
 
-        public List<Color> GetAll()
+        public IDataResult<List<Color>> GetAll()
         {
-            return _colorDal.GetAll();
+            return (IDataResult<List<Color>>)_colorDal.GetAll();
         }
 
-        public Color GetById(int colorId)
+        public IDataResult<Color> GetById(int colorId)
         {
-            return _colorDal.Get(a => a.ColorId == colorId);
+            return (IDataResult<Color>)_colorDal.Get(a => a.ColorId == colorId);
         }
     }
 }

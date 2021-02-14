@@ -6,9 +6,10 @@ using ReCapEntities.Concrete;
 
 namespace ReCapBusiness.Abstarct
 {
-    public interface IBrandService
+    public interface IUserService
     {
-        IDataResult<List<Brand>> GetAll();
-        IDataResult<Brand> GetById(int brandId);
+        IDataResult<List<User>> GetAll();
+        IResult Add(User user);
+        IResult Delete(User user);
     }
 }
