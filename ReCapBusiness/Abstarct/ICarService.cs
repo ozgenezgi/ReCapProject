@@ -14,6 +14,6 @@ namespace ReCapBusiness.Abstarct
         IDataResult<List<Car>> GetByUnitPrice(decimal min, decimal max);
         IDataResult<List<CarDetailDto>> GetCarDetails();
         IDataResult<Car> GetById(int carId);
-        IResult Add(Car product);
+        IResult Add(Car car);
     }
 }

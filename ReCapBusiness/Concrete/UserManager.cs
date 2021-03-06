@@ -1,11 +1,11 @@
-﻿using System;
+﻿
+
 using System.Collections.Generic;
-using System.Text;
+using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using ReCapBusiness.Abstarct;
 using ReCapBusiness.Constants;
 using ReCapDataAccess.Abstract;
-using ReCapEntities.Concrete;
 
 namespace ReCapBusiness.Concrete
 {
@@ -18,29 +18,32 @@ namespace ReCapBusiness.Concrete
             _userDal = userDal;
         }
 
+        public List<OperationClaims> GetClaims(User user)
+        {
+            return _userDal.GetClaims(user);
+        }
+
+
+        public User GetByMail(string email)
+        {
+            return _userDal.Get(u => u.Email == email);
+        }
+
         public IResult Add(User user)
         {
-            if (user.UserId == 0)
-            {
-
-                return new ErrorResult(Messages.UserError);
-            }
+           
+            
             _userDal.Add(user);
 
-            return new SuccessResult(Messages.UserAdded);
+            return new SuccessResult(Messages.UserrAdded);
         }
-
-        public IResult Delete(User user)
-        {
-            _userDal.Delete(user);
-            return new SuccessResult(Messages.UserDeleted);
-        }
-
-        public IDataResult<List<User>> GetAll()
-        {
-            return new SuccessDataResult<List<User>>(_userDal.GetAll());
-        }
-
- 
     }
+
+
+
+
+
+
+
 }
+
